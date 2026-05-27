@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    @apply bg-black text-white;
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded;
+  }
+}
+
+@layer utilities {
+  .text-poker-gold {
+    color: #c9a84c;
+  }
+  .bg-poker-gold {
+    background-color: #c9a84c;
+  }
+  .border-poker-gold {
+    border-color: #c9a84c;
+  }
+  .felt-bg {
+    background: radial-gradient(ellipse at center, #1e4d2b 0%, #0d3a1a 60%, #050f07 100%);
+  }
+  .card-bg {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .glow-gold {
+    box-shadow: 0 0 20px rgba(201,168,76,0.3);
+  }
+}
+
+/* Animations */
+@keyframes timerPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes progressBar {
+  from { width: 100%; }
+  to { width: 0%; }
+}
