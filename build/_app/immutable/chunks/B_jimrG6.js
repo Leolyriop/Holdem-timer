@@ -1,0 +1,1 @@
+function i(t){const r=Math.floor(t/60),o=t%60;return`${String(r).padStart(2,"0")}:${String(o).padStart(2,"0")}`}function e(t){return t.toLocaleString("pt-BR",{style:"currency",currency:"BRL"})}function n(t){return t>=1e6?`${(t/1e6).toFixed(1)}M`:t>=1e3?`${(t/1e3).toFixed(0)}K`:String(t)}function c(t,r){return`${n(t)} / ${n(r)}`}export{n as a,e as b,i as c,c as f};

@@ -83,7 +83,7 @@
   <header class="relative z-10 flex items-center justify-between px-6 py-3 border-b border-gray-800/60">
     <div class="flex items-center gap-3">
       {#if config.logoUrl}
-        <img src={config.logoUrl} alt={config.clubName} class="h-10 w-auto object-contain" />
+        <img src={config.logoUrl} alt={config.clubName} class="h-10 w-auto object-contain" style="mix-blend-mode: screen" />
       {:else}
         <div class="h-10 w-10 rounded-full flex items-center justify-center border-2" style="border-color: {config.primaryColor}">
           <span class="text-lg font-display" style="color: {config.primaryColor}">♠</span>
@@ -203,8 +203,9 @@
     width: min(85vw, 85vh);
     height: min(85vw, 85vh);
     object-fit: contain;
-    opacity: 0.08;
-    filter: grayscale(30%);
+    opacity: 0.12;
+    mix-blend-mode: screen;
+    filter: grayscale(20%);
     user-select: none;
     -webkit-user-drag: none;
   }

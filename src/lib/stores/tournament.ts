@@ -21,8 +21,8 @@ const DEFAULT_LEVELS = [
 const DEFAULT_CONFIG: TournamentConfig = {
   id: crypto.randomUUID(),
   name: 'Torneio Principal',
-  clubName: 'Poker Club',
-  logoUrl: '',
+  clubName: 'Kamikaze Poker Club',
+  logoUrl: '/kpc-logo.png',
   buyIn: 100,
   rebuyAmount: 100,
   rebuyLevels: 3,
