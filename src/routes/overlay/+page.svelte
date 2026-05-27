@@ -1,6 +1,12 @@
 <script lang="ts">
   import { tournamentConfig, tournamentState, currentLevel, nextLevel, prizePool, avgStack } from '$lib/stores/tournament';
   import { formatTime, formatChips, formatBlind, formatCurrency } from '$lib/utils/format';
+  import { base } from '$app/paths';
+
+  function resolveUrl(url: string) {
+    if (!url || url.startsWith('data:') || url.startsWith('http')) return url;
+    return base + url;
+  }
 
   $: config = $tournamentConfig;
   $: state = $tournamentState;
@@ -26,7 +32,7 @@
     <div class="flex items-center gap-3 px-5 min-w-[200px]"
       style="background: linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(20,20,20,0.9) 100%); border-top: 2px solid {config.primaryColor};">
       {#if config.logoUrl}
-        <img src={config.logoUrl} alt={config.clubName} class="h-12 w-auto" style="mix-blend-mode: screen" />
+        <img src={resolveUrl(config.logoUrl)} alt={config.clubName} class="h-12 w-auto" style="mix-blend-mode: screen" />
       {:else}
         <div class="text-3xl" style="color: {config.primaryColor}">♠</div>
       {/if}

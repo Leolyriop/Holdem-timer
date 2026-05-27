@@ -2,6 +2,7 @@
   import { tournamentConfig, applyConfig, resetTournament } from '$lib/stores/tournament';
   import type { TournamentConfig, BlindLevel } from '$lib/types';
   import { formatChips } from '$lib/utils/format';
+  import { base } from '$app/paths';
 
   let config: TournamentConfig = JSON.parse(JSON.stringify($tournamentConfig));
   let activeTab: 'general' | 'levels' | 'prizes' | 'appearance' = 'general';
@@ -110,7 +111,7 @@
   <!-- Header -->
   <header class="border-b border-gray-800 px-6 py-4 flex items-center justify-between">
     <div class="flex items-center gap-4">
-      <a href="/" class="text-gray-400 hover:text-white transition-colors">
+      <a href="{base}/" class="text-gray-400 hover:text-white transition-colors">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>

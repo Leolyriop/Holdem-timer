@@ -18,6 +18,12 @@
   } from '$lib/stores/tournament';
   import { toggleTimer, nextLevel as goNextLevel, prevLevel as goPrevLevel, addTime, jumpToLevel } from '$lib/stores/timer';
   import { formatCurrency, formatChips, formatTime } from '$lib/utils/format';
+  import { base } from '$app/paths';
+
+  function resolveUrl(url: string) {
+    if (!url || url.startsWith('data:') || url.startsWith('http')) return url;
+    return base + url;
+  }
 
   let showSidebar = true;
   let showLevels = false;
@@ -83,7 +89,7 @@
   <header class="relative z-10 flex items-center justify-between px-6 py-3 border-b border-gray-800/60">
     <div class="flex items-center gap-3">
       {#if config.logoUrl}
-        <img src={config.logoUrl} alt={config.clubName} class="h-10 w-auto object-contain" style="mix-blend-mode: screen" />
+        <img src={resolveUrl(config.logoUrl)} alt={config.clubName} class="h-10 w-auto object-contain" style="mix-blend-mode: screen" />
       {:else}
         <div class="h-10 w-10 rounded-full flex items-center justify-center border-2" style="border-color: {config.primaryColor}">
           <span class="text-lg font-display" style="color: {config.primaryColor}">♠</span>
@@ -96,8 +102,8 @@
     </div>
 
     <nav class="flex items-center gap-2">
-      <a href="/admin" class="btn-nav">Admin</a>
-      <a href="/overlay" target="_blank" class="btn-nav">OBS Overlay</a>
+      <a href="{base}/admin" class="btn-nav">Admin</a>
+      <a href="{base}/overlay" target="_blank" class="btn-nav">OBS Overlay</a>
       <button class="btn-nav" on:click={() => showSidebar = !showSidebar}>
         {showSidebar ? 'Ocultar' : 'Mostrar'} Painel
       </button>
@@ -115,7 +121,7 @@
       <!-- Logo watermark centrada no timer -->
       {#if config.logoUrl}
         <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-          <img src={config.logoUrl} alt="" class="logo-watermark" />
+          <img src={resolveUrl(config.logoUrl)} alt="" class="logo-watermark" />
         </div>
       {/if}
 
